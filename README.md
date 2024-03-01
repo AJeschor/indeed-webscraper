@@ -7,6 +7,7 @@
 - Specify the search based on location with the output attributes position, location, and description.
 
 This Python script is a command-line implementation of the Indeed Scraper by Misceres available on the Apify platform. For more details about the Indeed Scraper, refer to [the Apify website](https://apify.com/misceres/indeed-scraper).
+Its goal is to provide a simple CLI tool to scrape jobs posted on Indeed to get detailed information from about job postings based on location, position, and description.
 
 ## Usage
 
@@ -71,56 +72,71 @@ You can customize the webscraper's behavior by modifying the `RUN_INPUT` diction
 
 [Source](https://apify.com/misceres/indeed-scraper/input-schema)
 
-### Positions/keywords for search
+```
+{
+  "Webscraper_Settings": {
+    "RUN_INPUT": {
+      "position": "biology, chemistry",
+      "country": "CA",
+      "location": "Ottawa",
+      "maxItems": 5,
+      "parseCompanyDetails": true,
+      "saveOnlyUniqueItems": true,
+      "followApplyRedirects": true,
+      "maxConcurrency": 5
+    }
+```
+
+#### Positions/keywords for search
 - **Variable name:** position
 - **Data type:** string
 - **Requirement:** Optional
 
 Any combination of positions or keywords for search. If Start URLs are used, search position is disabled.
 
-### Country for search
+#### Country for search
 - **Variable name:** country
 - **Data type:** Enum
 - **Requirement:** Optional
 
 Country codes based on the ISO 3166-1 alpha-2 standard. Default value of this property is "US".
 
-### Location for search
+#### Location for search
 - **Variable name:** location
 - **Data type:** string
 - **Requirement:** Optional
 
 Any combination of city, zip code, or locality for search.
 
-### Max items
+#### Max items
 - **Variable name:** maxItems
 - **Data type:** integer
 - **Requirement:** Optional
 
 Limit of detail/product pages to be scraped.
 
-### Scrape company details
+#### Scrape company details
 - **Variable name:** parseCompanyDetails
 - **Data type:** boolean
 - **Requirement:** Optional
 
 If true, will also navigate to the company page of each job posting to scrape company info not available directly on the job posting page. Default value of this property is "false".
 
-### Save Only Unique Items
+#### Save Only Unique Items
 - **Variable name:** saveOnlyUniqueItems
 - **Data type:** boolean
 - **Requirement:** Optional
 
 If true, only unique items will be scraped. Default value of this property is "true".
 
-### Follow redirects for apply link
+#### Follow redirects for apply link
 - **Variable name:** followApplyRedirects
 - **Data type:** boolean
-- **Requirement:** Optional
 
+- **Requirement:** Optional
 If true, will follow redirects of Indeed's externalApplyLink and output the final one. Default value of this property is "true".
 
-### Max concurrency
+#### Max concurrency
 - **Variable name:** maxConcurrency
 - **Data type:** integer
 - **Requirement:** Optional
@@ -138,29 +154,25 @@ The scraped job listings will be saved as JSON files in the `output_files` direc
 
 ## Contribute
 
-### Why and How to Contribute to InfoExtractor
-
-InfoExtractor is an open-source Python package designed for extracting phone numbers, links, and emails from text. Contributing to InfoExtractor not only helps improve the functionality and reliability of the package but also fosters a collaborative community of developers. Here's why and how you can contribute:
-
 #### Why Contribute?
 
-- **Report Issues:** If you encounter any issues while using InfoExtractor, such as bugs or unexpected behavior, reporting them is crucial. By doing so, you help maintain the quality of the package and provide valuable feedback to the developers. Additionally, you can use the issue tracker to suggest new features or enhancements.
+- **Report Issues:** If you encounter any issues while using indeed-webscraper, such as bugs or unexpected behavior, reporting them is crucial. By doing so, you help maintain the quality of the package and provide valuable feedback to the developers. Additionally, you can use the issue tracker to suggest new features or enhancements.
 
-- **Improve Features:** Contributing code through pull requests allows you to fix existing issues or extend the functionality of InfoExtractor. Whether it's addressing a bug, adding new features, or enhancing existing ones, your contributions can significantly benefit the project and its users.
+- **Improve Features:** Contributing code through pull requests allows you to fix existing issues or extend the functionality of indeed-webscraper. Whether it's addressing a bug, adding new features, or enhancing existing ones, your contributions can significantly benefit the project and its users.
 
-#### How to Contribute
+### How to Contribute
 
 1. **Setup the Project on Your Local Machine:**
 
     - **Cloning the Repository:** Begin by creating a folder on your local machine and navigating to it. Then, clone the InfoExtractor repository using one of the following commands:
         ```
-        git clone https://github.com/AJeschor/InfoExtractor.git
+        git clone git@github.com:AJeschor/indeed-webscraper.git
         ```
         or
         ```
-        git clone git@github.com:AJeschor/InfoExtractor.git
+        git clone git@github.com:AJeschor/indeed-webscraper.git
         ```
-        After cloning, navigate into the InfoExtractor folder.
+        After cloning, navigate into the indeed-webscraper folder.
 
     - **Setting up the Environment:** Optionally, set up a project environment by creating a virtual environment if one needs to install any dependencies.
 
@@ -172,4 +184,4 @@ InfoExtractor is an open-source Python package designed for extracting phone num
 
     - **Documentation and Comments:** When pushing code changes, ensure proper documentation through docstrings. Additionally, adding comments to your code helps explain its functionality, making it easier for others to understand and review your contribution.
 
-By adhering to these guidelines and actively contributing to InfoExtractor, you play a vital role in improving the package for both current and future users. Your contributions are greatly appreciated and help drive the success of the project.
+By adhering to these guidelines and actively contributing to indeed-webscraper, you play a vital role in improving the package for both current and future users. Your contributions are greatly appreciated and help drive the success of the project.
