@@ -1,0 +1,12 @@
+{
+  "RUN_INPUT": {
+    "position": "biology, chemistry, ecology",
+    "country": "CA",
+    "location": "Ottawa",
+    "maxItems": 10,
+    "parseCompanyDetails": true,
+    "saveOnlyUniqueItems": true,
+    "followApplyRedirects": true,
+    "maxConcurrency": 5
+  }
+}
